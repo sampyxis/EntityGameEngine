@@ -60,6 +60,9 @@ void GameObject::onRender(SDL_Surface* surface){
 void GameObject::onCleanup() {
 }
 
+void GameObject::update(float timeDelta) {
+}
+
 // Destructor
 GameObject::~GameObject(void)
 {

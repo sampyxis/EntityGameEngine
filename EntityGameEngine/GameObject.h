@@ -3,6 +3,8 @@
 		Base Object for every object in the game
 		Need x,y, rot, width, height
 
+		Adding an update here - that way all children will run the update for every tick in the game
+
 */
 
 #pragma once
@@ -40,6 +42,7 @@ public:
 	virtual void onLoop();
 	virtual void onRender(SDL_Surface* surface);
 	virtual void onCleanup();
+	virtual void update(float timeDelta);
 
 };
 
