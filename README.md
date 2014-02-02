@@ -1,4 +1,4 @@
-# H1 EntityGameEngine
+# EntityGameEngine
 ================
 
 A lite game engine to learn c++
