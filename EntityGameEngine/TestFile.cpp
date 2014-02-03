@@ -1,5 +1,12 @@
-// Test.cpp : Defines the entry point for the console application.
-// Author D. Bolton, About.com (c) 2011 V1.0
+/*
+	EntityGameEngine - a super simple game engine to learn C++
+	
+	Samuel Harper 2014
+*/ 
+
+/*
+	This is the game file that runs - will soon change to a game object - then a seperate game files to actually run the game
+*/
 
 #include "SDL.h"   /* All SDL App's need this */
 #include "SDL_image.h"
