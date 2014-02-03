@@ -1,3 +1,9 @@
+/*
+	EntityGameEngine - a super simple game engine to learn C++
+	
+	Samuel Harper 2014
+*/
+
 #include "StaticObject.h"
 
 

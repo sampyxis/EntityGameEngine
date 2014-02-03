@@ -1,3 +1,8 @@
+/*
+	EntityGameEngine - a super simple game engine to learn C++
+	
+	Samuel Harper 2014
+*/
 /* 
 	GameObject - 
 		Base Object for every object in the game
