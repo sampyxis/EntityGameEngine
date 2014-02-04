@@ -1,7 +1,7 @@
 /*
 	EntityGameEngine - a super simple game engine to learn C++
 	
-	Samuel Harper 2014
+	sampyxis 2014
 */
 /* 
 	GameObject - 
@@ -9,6 +9,7 @@
 		Need x,y, rot, width, height
 
 		Adding an update here - that way all children will run the update for every tick in the game
+		Adding a startup and shutdown function as well
 
 */
 
@@ -47,7 +48,8 @@ public:
 	virtual void onLoop();
 	virtual void onRender(SDL_Surface* surface);
 	virtual void onCleanup();
-	virtual void update(float timeDelta);
-
+	virtual void onStartup();
+	virtual void onUpdate(float timeDelta);
+	virtual void onShutdown();
 };
 

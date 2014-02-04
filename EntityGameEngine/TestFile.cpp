@@ -1,7 +1,7 @@
 /*
 	EntityGameEngine - a super simple game engine to learn C++
 	
-	Samuel Harper 2014
+	sampyxis 2014
 */ 
 
 /*
@@ -16,7 +16,6 @@
 
 	SDL_Surface* backdrop = NULL;
 	SDL_Surface* screen = NULL;	 
-	//SDL_Surface* sprite = NULL;
 	SDL_Surface* temp = NULL;
 	SDL_Rect rcSprite;
 	SDL_Event event;
@@ -159,12 +158,8 @@ int main(int argc, char* argv[])
 				}
 			}
 		// Still running
-
-		//sprite.rcSprite.x += velocX;
-		//sprite.rcSprite.y += velocY;
-//		player.sprite.rcSprite.x += velocX;
-//		player.sprite.rcSprite.y += velocY;
 		player.moveObject(velocX, velocY);
+		player.onUpdate(0.0f);  // Needs to be delta - also needs to be an object that holds all entities that has update
 		RenderScreen();
 	  }
 	FinishOff();

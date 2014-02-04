@@ -1,7 +1,7 @@
 /*
 	EntityGameEngine - a super simple game engine to learn C++
 	
-	Samuel Harper 2014
+	sampyxis 2014
 */
 
 #include "GameObject.h"
@@ -66,7 +66,13 @@ void GameObject::onRender(SDL_Surface* surface){
 void GameObject::onCleanup() {
 }
 
-void GameObject::update(float timeDelta) {
+void GameObject::onStartup() {
+}
+
+void GameObject::onUpdate(float timeDelta) {
+}
+
+void GameObject::onShutdown() {
 }
 
 // Destructor
