@@ -23,6 +23,7 @@ public:
 	GameObject(void);
 	GameObject(float x, float y); // Constructor
 	GameObject(char* fileName, float x, float y);
+	GameObject(char* fileName, float x, float y, bool visible);
 	virtual ~GameObject(void); // Destructor
 
 	// Properties
@@ -39,6 +40,7 @@ public:
 	int height;
 
 	bool allowOutOfBounds;
+	bool visible;
 
 	// Functions
 	void SetLocation(float x, float y);
@@ -47,6 +49,8 @@ public:
 	virtual bool loadObject(char* file, int width, int height, int maxFrames); // Virtual since we may be redfining these later
 	virtual void onLoop();
 	virtual void onRender(SDL_Surface* surface);
+	virtual bool isVisible();
+	virtual void setVisbible(bool vis);
 	virtual void onCleanup();
 	virtual void onStartup();
 	virtual void onUpdate(float timeDelta);

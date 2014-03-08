@@ -22,6 +22,14 @@ GameObject::GameObject(char* fileName, float x, float y){
 	SetLocation(x, y);
 }
 
+// Construct with image and set visible 
+GameObject::GameObject(char* fileName, float x, float y, bool visible){
+	sprite = GameSprite(fileName);
+	SetLocation(x, y);
+	visible= true;
+}
+
+
 // Set location
 void GameObject::SetLocation(float x, float y) {
 	myLocation.x  = x;
@@ -61,6 +69,14 @@ void GameObject::onLoop() {
 
 void GameObject::onRender(SDL_Surface* surface){
 	SDL_BlitSurface(sprite.image, NULL, surface, &sprite.rcSprite);
+}
+
+bool GameObject::isVisible() {
+	return visible;
+}
+
+void GameObject::setVisbible(bool vis) {
+	visible = vis;
 }
 
 void GameObject::onCleanup() {

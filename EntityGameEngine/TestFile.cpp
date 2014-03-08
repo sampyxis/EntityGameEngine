@@ -90,7 +90,7 @@ void FinishOff() {
 }
 
 
-int main(int argc, char* argv[])
+int main_old(int argc, char* argv[])
 {
 	  InitGame();
 	  RenderScreen();		  
