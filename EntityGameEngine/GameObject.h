@@ -41,6 +41,9 @@ public:
 
 	bool allowOutOfBounds;
 	bool visible;
+	bool isAlive;
+
+	int id;
 
 	// Functions
 	void SetLocation(float x, float y);
@@ -55,5 +58,7 @@ public:
 	virtual void onStartup();
 	virtual void onUpdate(float timeDelta);
 	virtual void onShutdown();
+	void setID(int value) { id = value; }
+	int getID() { return id; }
 };
 
