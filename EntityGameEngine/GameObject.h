@@ -37,7 +37,7 @@ public:
 
 	float rotation;
 	int width;
-	int height;
+	int height; 
 
 	bool allowOutOfBounds;
 	bool visible;

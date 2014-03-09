@@ -65,7 +65,7 @@ bool GameObject::loadObject(char* file, int width, int height, int maxFrames){
 }
 
 void GameObject::onLoop() {
-}
+} 
 
 void GameObject::onRender(SDL_Surface* surface){
 	SDL_BlitSurface(sprite.image, NULL, surface, &sprite.rcSprite);

@@ -15,6 +15,7 @@
 #include "SDL.h"   /* All SDL App's need this */
 #include "SDL_image.h"
 #include <stdio.h>
+#include "GameObject.h"
 #include "GameSprite.h"
 #include "PlayerObject.h" // Should be in engine or game???
 
@@ -30,6 +31,7 @@ public:
 	void RenderScreen(void);
 	void UpdateObjects(void);
 	void AddGameObject(GameObject *gameObject);
+
 
 	// GameObjects
 	std::list<GameObject*> gameObjectList;

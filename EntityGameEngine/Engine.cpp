@@ -57,9 +57,11 @@ void Engine::RenderScreen(void){
 
 // Add a game object to the list
 void Engine::AddGameObject(GameObject *gameObject){
-	static id  = 0;
-	gameObject->
-}
+	static int id = 0;
+	gameObject->setID(id);
+	gameObjectList.push_back(gameObject);
+	id++;
+};
 
 // Update all objects
 void Engine::UpdateObjects(void){
@@ -79,7 +81,7 @@ void Engine::UpdateObjects(void){
 		if(gameObject.isVisible){
 			gameObject.onRender();
 		}
-		iter++
+		iter++;
 	}
 }
 
