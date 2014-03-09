@@ -28,7 +28,7 @@ public:
 
 	static void InitSDL(void);
 	void InitGame(void);
-	void RenderScreen(void);
+	static void RenderScreen(void);
 	void UpdateObjects(void);
 	void AddGameObject(GameObject *gameObject);
 

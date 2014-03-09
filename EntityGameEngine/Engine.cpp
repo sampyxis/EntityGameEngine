@@ -72,14 +72,14 @@ void Engine::UpdateObjects(void){
 	while(iter != gameObjectList.end())
 	{
 		// Get an object
-		gameObject = iter;
+		gameObject = *iter;
 		// Is it alive
-		if(gameObject.isAlive) {
+		if(gameObject->getIsAlive()) {
 			//gameObject.onUpdate();
-			gameObject.onLoop();
+			gameObject->onLoop();
 		}
-		if(gameObject.isVisible){
-			gameObject.onRender();
+		if(gameObject->isVisible()){
+			gameObject->onRender(screen);
 		}
 		iter++;
 	}

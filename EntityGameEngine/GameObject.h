@@ -60,5 +60,7 @@ public:
 	virtual void onShutdown();
 	void setID(int value) { id = value; }
 	int getID() { return id; }
+	void setIsAlive( bool value) { isAlive = value;}
+	bool getIsAlive() {return isAlive; }
 };
 

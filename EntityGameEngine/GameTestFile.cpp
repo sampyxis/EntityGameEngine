@@ -14,6 +14,10 @@
 // Engine::backgrop = NULL;
 SDL_Surface* localBackdrop = NULL;
 
+// Game specific variables
+bool gameRunning = true;
+bool gamePaused = false;
+
 // Load Background
 void loadBackground(){
 	localBackdrop = IMG_Load( "bk_warhouse.gif" );
@@ -31,6 +35,10 @@ int main(int argc, char* argv[]){
 	//Engine myEngine = new Engine();
 	Engine::InitSDL();
 	loadBackground();
+	// Loop while running
+	while(gameRunning) {
+		Engine::RenderScreen();
+	}
 
 	return 0;
 }
