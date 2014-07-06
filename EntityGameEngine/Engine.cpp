@@ -11,6 +11,10 @@
 	const int SCREEN_WIDTH = 960;
 	const int SCREEN_HEIGHT = 640;
 	const int SCREEN_BPP = 32;
+	SDL_Surface* Engine::backdrop = NULL;
+	SDL_Surface* Engine::screen = NULL;
+	SDL_Surface* Engine::temp = NULL;
+	PlayerObject Engine::player;
 
 // Contructor
 Engine::Engine(void){
@@ -23,15 +27,16 @@ Engine::Engine(int width, int height, char* title) {
 	const int SCREEN_BPP = 32;
 	windowTitle = title;
 
+
 }
 
 void Engine::InitSDL(void) {
-	SDL_Surface* backdrop = NULL;
-	SDL_Surface* screen = NULL;	 
-	SDL_Surface* temp = NULL;
-	SDL_Rect rcSprite;
-	SDL_Event event;
-	SDL_Rect source;
+//	SDL_Surface* Engine::backdrop = NULL;
+	//screen = NULL;	 
+	//temp = NULL;
+	//SDL_Rect rcSprite;
+	//SDL_Event event;
+	//SDL_Rect source;
 
 	// Setup the screen now
 	SDL_Init( SDL_INIT_EVERYTHING );    
@@ -48,7 +53,7 @@ void Engine::InitGame(void) {
 }
 
 void Engine::RenderScreen(void){
-	SDL_BlitSurface( backdrop, NULL, screen, NULL );
+	SDL_BlitSurface( Engine::backdrop, NULL, Engine::screen, NULL );
 	//SDL_BlitSurface(sprite.image, NULL, screen, &sprite.rcSprite);
 	// Here will be the loop where we render all entities - or - call each entity and have them render themselves
 	player.onRender(screen);

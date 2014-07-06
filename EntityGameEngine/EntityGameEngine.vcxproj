@@ -86,7 +86,6 @@
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="GameSprite.cpp" />
     <ClCompile Include="StaticObject.cpp" />
-    <ClCompile Include="TestFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="about.gif" />

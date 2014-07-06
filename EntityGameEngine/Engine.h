@@ -7,6 +7,8 @@
 */
 
 // All the engine files
+
+
 #pragma once
 #include <iostream>
 #include <list>
@@ -37,11 +39,10 @@ public:
 	std::list<GameObject*> gameObjectList;
 
 	// Screen
-	SDL_Surface* backdrop;
-	SDL_Surface* screen;
-	SDL_Surface* temp;
+	static SDL_Surface* backdrop;
+	static SDL_Surface* screen;
+	static SDL_Surface* temp;
 	SDL_Rect rcSprite;
-	SDL_Event event;
 	int gameRunning;
 	SDL_Rect source;
 	Uint8 *keystate;
@@ -51,6 +52,6 @@ public:
 	char* windowTitle;
 	
 	// Player object to be assigned in the game
-	PlayerObject player;
+	static PlayerObject player;
 };
 
