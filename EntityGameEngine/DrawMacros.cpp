@@ -25,9 +25,12 @@ SDL_Surface* DrawMacros::loadImage(char* file) {
 	}
 	
 	if(sTemp->format->Amask) {
-		sReturn = SDL_DisplayFormatAlpha(sTemp);
+		//sReturn = SDL_DisplayFormatAlpha(sTemp);
+		// Returns a new surface with an alpha channel added
+		sReturn = SDL_ConvertSurfaceFormat(sTemp, SDL_PIXELFORMAT_RGBA8888, 0);
 	} else {
-		sReturn = SDL_DisplayFormat(sTemp);
+		sReturn = SDL_ConvertSurfaceFormat(sTemp,
+			SDL_PIXELFORMAT_UNKNOWN, 0);
 	}
 	SDL_FreeSurface(sTemp);
 	
@@ -76,7 +79,7 @@ bool DrawMacros::transparent(SDL_Surface* sDst, int R, int G, int B) {
 		return false;
 	}
 	
-	SDL_SetColorKey(sDst, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(sDst->format,R,G,B));
+	SDL_SetColorKey(sDst, SDL_TRUE | SDL_RLEACCEL, SDL_MapRGB(sDst->format,R,G,B));
 	
 	return true;
 }

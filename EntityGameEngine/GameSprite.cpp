@@ -5,6 +5,7 @@
 */
 
 #include "GameSprite.h"
+#include <stdio.h>
 
 
 GameSprite::GameSprite(){

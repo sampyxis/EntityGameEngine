@@ -15,6 +15,8 @@
 	SDL_Surface* Engine::screen = NULL;
 	SDL_Surface* Engine::temp = NULL;
 	PlayerObject Engine::player;
+	//The window we'll be rendering to
+	static SDL_Window* gWindow = NULL;
 
 // Contructor
 Engine::Engine(void){
@@ -40,8 +42,13 @@ void Engine::InitSDL(void) {
 
 	// Setup the screen now
 	SDL_Init( SDL_INIT_EVERYTHING );    
-	screen = SDL_SetVideoMode(SCREEN_WIDTH,SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE | SDL_DOUBLEBUF  );
-	SDL_WM_SetCaption( "Title - temp", 0 );
+	//screen = SDL_SetVideoMode(SCREEN_WIDTH,SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE | SDL_DOUBLEBUF  );
+	//Create window
+	gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+	SDL_SetWindowTitle(gWindow, "Title - temp" );
+	//Get window surface
+	screen = SDL_GetWindowSurface(gWindow);
 	//SDL_WM_SetCaption( windowTitle, 0 );
 
 }
@@ -57,7 +64,10 @@ void Engine::RenderScreen(void){
 	//SDL_BlitSurface(sprite.image, NULL, screen, &sprite.rcSprite);
 	// Here will be the loop where we render all entities - or - call each entity and have them render themselves
 	player.onRender(screen);
-	SDL_Flip( screen );
+
+	//Update the surface
+	SDL_UpdateWindowSurface(gWindow);
+	//SDL_Flip( screen );
 }
 
 // Add a game object to the list
