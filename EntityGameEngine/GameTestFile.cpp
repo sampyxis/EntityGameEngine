@@ -15,6 +15,9 @@
 SDL_Surface* localBackdrop = NULL;
 SDL_Event event;
 
+Engine thisEngine = Engine();
+
+
 // Game specific variables
 bool gameRunning = true;
 bool gamePaused = false;
@@ -23,6 +26,7 @@ bool gamePaused = false;
 	float velocX = 0.f;
 
 	PlayerObject myPlayer;
+	//GameObject& mBarrel = NULL;
 
 
 // Load Background
@@ -33,13 +37,20 @@ void loadBackground(){
 	if (!localBackdrop)
 		printf("Failed to load background");
 	else
-		Engine::backdrop = localBackdrop;
+		thisEngine.backdrop = localBackdrop;
+}
+
+// Setup level objects
+// Move this to a level manager later
+void setUpLevel() {
+	GameObject& mBarrel = GameObject("spr_cop_0.gif", 10.f, 10.f, true);
+	thisEngine.AddGameObject(&mBarrel);
 }
 
 // Set up the player
 void setUpPlayer(){
 	myPlayer =  PlayerObject("spr_cop_0.gif", 0.f, 0.f);
-	Engine::player = PlayerObject("spr_cop_0.gif", 0.f, 0.f);
+	thisEngine.player = PlayerObject("spr_cop_0.gif", 0.f, 0.f);
 	//Engine::AddGameObject(myPlayer);
 }
 
@@ -49,9 +60,10 @@ int main(int argc, char* argv[]){
 
 // Init the Engine
 	//Engine* myEngine = new Engine();
-	Engine::InitSDL();
+	thisEngine.InitSDL();
 	loadBackground();
 	setUpPlayer();
+	setUpLevel();
 	// Loop while running
 	while(gameRunning) {
 		while( (SDL_PollEvent( &event ))    ){
@@ -114,9 +126,10 @@ int main(int argc, char* argv[]){
 //
 				}
 		}
-		Engine::player.moveObject(velocX, velocY);
-		Engine::player.onUpdate(0.0f);  // Needs to be delta - also needs to be an object that holds all entities that has update
-		Engine::RenderScreen();
+		thisEngine.player.moveObject(velocX, velocY);
+		thisEngine.player.onUpdate(0.0f);  // Needs to be delta - also needs to be an object that holds all entities that has update
+		thisEngine.UpdateObjects();
+		thisEngine.RenderScreen();
 	}
 
 	return 0;

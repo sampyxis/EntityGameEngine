@@ -28,8 +28,6 @@ Engine::Engine(int width, int height, char* title) {
 	const int SCREEN_HEIGHT = height;
 	const int SCREEN_BPP = 32;
 	windowTitle = title;
-
-
 }
 
 void Engine::InitSDL(void) {
@@ -82,7 +80,7 @@ void Engine::AddGameObject(GameObject *gameObject){
 void Engine::UpdateObjects(void){
 	std::list<GameObject*>::iterator iter;
 	GameObject *gameObject;
-
+	
 	iter = gameObjectList.begin();
 	while(iter != gameObjectList.end())
 	{

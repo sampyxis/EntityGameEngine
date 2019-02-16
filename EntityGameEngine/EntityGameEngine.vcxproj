@@ -108,6 +108,11 @@
     <ClInclude Include="GameSprite.h" />
     <ClInclude Include="StaticObject.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\br_01.gif" />
+    <Image Include="Resources\br_01.png" />
+    <Image Include="Resources\spr_cop_0.gif" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

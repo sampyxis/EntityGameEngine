@@ -16,6 +16,7 @@
 #pragma once
 #include "DrawMacros.h"
 #include "GameSprite.h"
+#include <iostream>
 
 class GameObject
 {

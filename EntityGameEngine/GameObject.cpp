@@ -53,6 +53,8 @@ void GameObject::moveObject(float velocX, float velocY){
 	} else {
 		sprite.rcSprite.y += velocY;
 	}
+	printf("x = %d \n", sprite.rcSprite.x);
+	printf("y = %d \n", sprite.rcSprite.y);
 }
 
 
