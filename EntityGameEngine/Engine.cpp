@@ -17,6 +17,7 @@
 	PlayerObject Engine::player;
 	//The window we'll be rendering to
 	static SDL_Window* gWindow = NULL;
+	std::list<GameObject*> Engine::gameObjectList;
 
 // Contructor
 Engine::Engine(void){
@@ -62,7 +63,9 @@ void Engine::RenderScreen(void){
 	//SDL_BlitSurface(sprite.image, NULL, screen, &sprite.rcSprite);
 	// Here will be the loop where we render all entities - or - call each entity and have them render themselves
 	player.onRender(screen);
-
+	//Render all the objects
+	Engine::UpdateObjects();
+	//
 	//Update the surface
 	SDL_UpdateWindowSurface(gWindow);
 	//SDL_Flip( screen );
@@ -78,6 +81,7 @@ void Engine::AddGameObject(GameObject *gameObject){
 
 // Update all objects
 void Engine::UpdateObjects(void){
+	// problem is we don't know which gameObjectList to use - when I get here the system tries to recreate one.
 	std::list<GameObject*>::iterator iter;
 	GameObject *gameObject;
 	

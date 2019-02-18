@@ -36,6 +36,8 @@ public:
 
 	GameSprite sprite;
 
+	char* title;
+
 	float rotation;
 	int width;
 	int height; 

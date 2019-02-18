@@ -15,18 +15,18 @@
 SDL_Surface* localBackdrop = NULL;
 SDL_Event event;
 
-Engine thisEngine = Engine();
+Engine thisEngine;// = Engine();
 
 
 // Game specific variables
 bool gameRunning = true;
 bool gamePaused = false;
 
-	float velocY = 0.f;
-	float velocX = 0.f;
+float velocY = 0.f;
+float velocX = 0.f;
 
-	PlayerObject myPlayer;
-	//GameObject& mBarrel = NULL;
+PlayerObject myPlayer;
+//GameObject& mBarrel = NULL;
 
 
 // Load Background
@@ -44,26 +44,47 @@ void loadBackground(){
 // Move this to a level manager later
 void setUpLevel() {
 	GameObject& mBarrel = GameObject("spr_cop_0.gif", 10.f, 10.f, true);
+	mBarrel.title = "Barrel 1";
 	thisEngine.AddGameObject(&mBarrel);
+	
+	GameObject& mBarrel1 = GameObject("spr_cop_0.gif", 20.f, 20.f, true);
+	mBarrel1.title = "Barrel 2";
+	thisEngine.AddGameObject(&mBarrel1);
+	// Below for testing
+	thisEngine.UpdateObjects();
 }
 
 // Set up the player
 void setUpPlayer(){
+	int i;
+	i = 1;
 	myPlayer =  PlayerObject("spr_cop_0.gif", 0.f, 0.f);
 	thisEngine.player = PlayerObject("spr_cop_0.gif", 0.f, 0.f);
 	//Engine::AddGameObject(myPlayer);
+	thisEngine.UpdateObjects();
 }
-
 
 // Game entry
 int main(int argc, char* argv[]){
 
 // Init the Engine
 	//Engine* myEngine = new Engine();
+	thisEngine = Engine();
 	thisEngine.InitSDL();
 	loadBackground();
+//	setUpLevel();
+	GameObject& mBarrel = GameObject("spr_cop_0.gif", 10.f, 10.f, true);
+	mBarrel.title = "Barrel 1";
+	thisEngine.AddGameObject(&mBarrel);
+
+	GameObject& mBarrel1 = GameObject("spr_cop_0.gif", 20.f, 20.f, true);
+	mBarrel1.title = "Barrel 2";
+	thisEngine.AddGameObject(&mBarrel1);
+	// Below for testing
+	thisEngine.UpdateObjects();
 	setUpPlayer();
-	setUpLevel();
+
+
 	// Loop while running
 	while(gameRunning) {
 		while( (SDL_PollEvent( &event ))    ){

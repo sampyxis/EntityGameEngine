@@ -31,12 +31,11 @@ public:
 	static void InitSDL(void);
 	void InitGame(void);
 	static void RenderScreen(void);
-	void UpdateObjects(void);
+	static void UpdateObjects(void);
 	void AddGameObject(GameObject *gameObject);
 
-
 	// GameObjects
-	std::list<GameObject*> gameObjectList;
+	static std::list<GameObject*> gameObjectList;
 
 	// Screen
 	static SDL_Surface* backdrop;
